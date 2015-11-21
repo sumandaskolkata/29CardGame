@@ -1,5 +1,5 @@
 var lib = require('./cardGenerator.js').lib;
-var assert = require('assert');
+var expect = require('chai').expect;
 
 var cards = [ { name: 'Jack', suit: 'Heart', rank: 1, point: 3 },
   { name: 9, suit: 'Heart', rank: 2, point: 2 },
@@ -38,16 +38,16 @@ var cards = [ { name: 'Jack', suit: 'Heart', rank: 1, point: 3 },
 
 describe('add all attributes',function(){
 	it('should set all properties',function(){
-		assert.deepEqual({'name':'Jack','suit':'Heart','rank':1,'point':3},new lib.SetProperty('Jack','Heart',1,3))
+		expect({'name':'Jack','suit':'Heart','rank':1,'point':3}).to.deep.equal(new lib.SetProperty('Jack','Heart',1,3));
 	});
 });
 
 describe('generate all cards',function(){
 	it('should have 32 cards',function(){
-		assert.equal(32,lib.generateCard().length);
+		expect(32).to.equal(lib.generateCard().length);
 	});
 	it('should have all card',function(){
-		assert.deepEqual(cards,lib.generateCard());
+		expect(cards).to.eql(lib.generateCard());
 	});
 });
 
