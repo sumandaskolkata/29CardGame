@@ -1,5 +1,4 @@
 var lib = {};
-
 lib.Card = function(suit,name,rank,point){
 	this.suit = suit;
 	this.name = name;
@@ -14,7 +13,7 @@ lib.generateDeckOf32Cards = function(){
 	var deckOfCards = [];
 	suits.forEach(function(eachSuit){
 		prioritisedCards.forEach(function(eachCard,indexOfprioritisedCards){
-			deckOfCards.push(new lib.Card(eachCard,eachSuit,indexOfprioritisedCards + 1,prioritisedPoints[indexOfprioritisedCards]));
+			deckOfCards.push(new lib.Card(eachSuit,eachCard,indexOfprioritisedCards + 1,prioritisedPoints[indexOfprioritisedCards]));
 		});
 	});
 	return deckOfCards;
