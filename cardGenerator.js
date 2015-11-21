@@ -1,24 +1,23 @@
-var lib = {};
-
-
-lib.SetProperty = function(name,suit,rank,point){
-	this.name = name;
+var Card = function(suit,name,rank,point){
 	this.suit = suit;
+	this.name = name;
 	this.rank = rank;
 	this.point = point;
 };
 
-lib.generateCard = function(){
-	var cards = ['Jack',9,'Ace',10,'King','Queen',8,7];
-	var suit = ['Heart','Spade','Club','Diamond'];
-	var points = [3,2,1,1,0,0,0,0];
-	var allCards = [];
-	suit.forEach(function(eachSuit){
-		cards.forEach(function(eachCard,index){
-			allCards.push(new lib.SetProperty(eachCard,eachSuit,index + 1,points[index]));
+var generateDeckOf32Cards = function(){
+	var prioritisedCards = ['Jack',9,'Ace',10,'King','Queen',8,7];
+	var suits = ['Heart','Spade','Club','Diamond'];
+	var prioritisedPoints = [3,2,1,1,0,0,0,0];
+	var deckOfCards = [];
+	suits.forEach(function(eachSuit){
+		prioritisedCards.forEach(function(eachCard,indexOfprioritisedCards){
+			deckOfCards.push(new Card(eachSuit,eachCard,indexOfprioritisedCards + 1,prioritisedPoints[indexOfprioritisedCards]));
 		});
 	});
-	return allCards;
+	return deckOfCards;
 };
 
-exports.lib = lib;
+exports.generateDeckOf32Cards = generateDeckOf32Cards;
+exports.Card=Card;
+
