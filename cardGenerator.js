@@ -1,6 +1,4 @@
-var lodash = require('lodash');
 var lib = {};
-exports.lib = lib;
 
 
 lib.SetProperty = function(name,suit,rank,point){
@@ -17,12 +15,10 @@ lib.generateCard = function(){
 	var allCards = [];
 	suit.forEach(function(eachSuit){
 		cards.forEach(function(eachCard,index){
-			allCards.push(new lib.SetProperty(eachCard,eachSuit,index + 1,points[index]))
+			allCards.push(new lib.SetProperty(eachCard,eachSuit,index + 1,points[index]));
 		});
 	});
 	return allCards;
 };
 
-
-
-
+exports.lib = lib;
