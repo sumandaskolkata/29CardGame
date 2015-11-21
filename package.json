@@ -1,15 +1,25 @@
 {
-  "name": "demo_app",
+  "name": "29cardgame",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "29 Card Game",
+  "main": "cardGenerator.js",
   "scripts": {
-    "test": "mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumandaskolkata/29CardGame.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "lodash": "^3.10.1",
+  "bugs": {
+    "url": "https://github.com/sumandaskolkata/29CardGame/issues"
+  },
+  "homepage": "https://github.com/sumandaskolkata/29CardGame#readme",
+  "devDependencies": {
     "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
   }
 }
