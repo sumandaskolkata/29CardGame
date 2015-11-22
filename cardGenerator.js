@@ -1,9 +1,8 @@
 var lib = {};
 
-
-lib.SetProperty = function(name,suit,rank,point){
-	this.name = name;
+lib.SetProperty = function(suit,name,rank,point){
 	this.suit = suit;
+	this.name = name;
 	this.rank = rank;
 	this.point = point;
 };
@@ -15,10 +14,9 @@ lib.generateCard = function(){
 	var allCards = [];
 	suit.forEach(function(eachSuit){
 		cards.forEach(function(eachCard,index){
-			allCards.push(new lib.SetProperty(eachCard,eachSuit,index + 1,points[index]));
+			allCards.push(new lib.SetProperty(eachSuit,eachCard,index + 1,points[index]));
 		});
 	});
 	return allCards;
 };
-
 exports.lib = lib;
