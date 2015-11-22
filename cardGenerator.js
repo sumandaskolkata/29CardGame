@@ -1,4 +1,5 @@
 var lib = {};
+
 lib.Card = function(suit,name,rank,point){
 	this.suit = suit;
 	this.name = name;
@@ -18,5 +19,4 @@ lib.generateDeckOf32Cards = function(){
 	});
 	return deckOfCards;
 };
-
 exports.lib = lib;
