@@ -6,7 +6,7 @@ describe('player',function(){
 		var player = new lib.Player('anjaly');
 		expect(player).to.have.all.keys('cards','bidPoints');
 	});
-	it('should have bidPoints with properties',function(){
+	it('should have bidPoints field with properties',function(){
 		var player = new lib.Player('anjaly');
 		expect(player.bidPoints(16)).to.have.all.keys('ID','bidPoint');
 		expect(player.bidPoints(16)).to.be.a('object');
