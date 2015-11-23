@@ -38,11 +38,7 @@ lib.Team.prototype = {
 		return (pointsCollectedByTeam >= valueOfBid) ? true :false
 	}
 }
-var twoTeam = lib.makeTwoTeams(['shruti','surajit','jishnu','ranju'])
-lib.monitor = {};
-lib.monitor.team1 = new lib.Team(twoTeam[0]);
-lib.monitor.team2 = new lib.Team(twoTeam[1]);
 
 
+exports.lib=lib;
 
-exports.lib=lib;	

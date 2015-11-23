@@ -68,7 +68,4 @@ describe('Team',function(){
 		expect(team.isBidderWon(21,19)).to.be.true;
 		expect(team.isBidderWon(18,20)).to.be.false;
 	});
-
-
-
 });
