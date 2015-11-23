@@ -11,5 +11,9 @@ module.Deck.prototype = {
 	splitCardsIntoGroupOfFour : function(){
 		return ld.chunk(this.playableCards,4);
 	},
+	distributeCards : function(remainingCards){
+		var cardForEachPlayer = remainingCards.shift();
+		return cardForEachPlayer;
+	},
 };
 exports.module = module;
