@@ -6,7 +6,9 @@ var deckOfCards = new cardGeneratorLib.generateDeckOf32Cards();
 
 describe('Deck',function(){
 	var deck = new deckLib.Deck(deckOfCards);
-	var splitedCards = deck.splitCardsIntoGroupOfFour();
+	var splitedCards = deck.splitCardsIntoGroupOfFour;
+	console.log("************",deck);
+	console.log("---------------",splitedCards);
 
 	it('should have playable cards',function(){
 		expect(deck).to.have.all.keys('playableCards');
@@ -29,29 +31,30 @@ describe('Deck',function(){
 
 	describe('#divide into group of 4',function(){
 		it('should return an array of length 8',function(){
-			expect(8).to.equal(splitedCards.length);
+			expect(8).to.equal(splitedCards(deck.shuffleCards()).length);
 		});
 
 		it('each element should have 4 cards',function(){
-			expect(4).to.equal(splitedCards[0].length)
+			expect(4).to.equal(splitedCards(deck.shuffleCards())[0].length)
 		});
 	});
 
 	describe('#distribute',function(){
+		var cardsToBeDistributed = splitedCards(deck.shuffleCards());
 		it('should give set of 4 cards to 1 player',function(){
-			expect(4).to.equal(deck.distributeCards(splitedCards).length);
+			expect(4).to.equal(deck.distributeCards(cardsToBeDistributed).length);
 		});
 
 		it('should give length of 7 after 1st call',function(){
-			expect(7).to.equal(splitedCards.length);
+			expect(7).to.equal(cardsToBeDistributed.length);
 		});
 
 		it('should give set of 4 cards to 1 player for 2nd time',function(){
-			expect(4).to.equal(deck.distributeCards(splitedCards).length);
+			expect(4).to.equal(deck.distributeCards(cardsToBeDistributed).length);
 		});
-		
+
 		it('should give length of 6 after 2nd call',function(){
-			expect(6).to.equal(splitedCards.length);
+			expect(6).to.equal(cardsToBeDistributed.length);
 		});
 	});
 });
