@@ -11,17 +11,35 @@ lib.makeTwoTeams = function(playersUniqueIDs){
 lib.Player = function (playerUniqueID) {
 	this.playerID=playerUniqueID
 	this.hand = [];
-	this.bidPoints = function (assumingBidPoint) {
-		return {ID:playerUniqueID,bidPoint:assumingBidPoint};
-	};
+	this.isBidder = false;
+	this.hasPair = false;
+	
 };
-lib.Team = function(team){
+lib.Player.prototype= {
+	bidPoints : function (assumingBidPoint) {
+		return {ID:this.playerID,bidPoint:assumingBidPoint};
+	},
+};
+lib.Team = function(team){		
 	this.player1 = new lib.Player(team[0]);
 	this.player2 = new lib.Player(team[1]);
-
-
-}
-lib.Team.prototype = {
-
+	this.isPair = false;
+	this.wonCardsBucket = [];
+	this.score = 0;
 };
-exports.lib=lib;
+lib.Team.prototype = {
+	scoreBoard : function(isWinner){
+		(isWinner == true) ? this.score ++ : this.score --;
+	},
+	calculatePointsAfterEachTrick : function(wonCards){
+		return ld.sum(wonCards.map(function(element){ return element.point}))
+	},
+	isBidderWon:function(pointsCollectedByTeam,valueOfBid){
+		return (pointsCollectedByTeam >= valueOfBid) ? true :false
+	}
+}
+var twoTeam = lib.makeTwoTeams(['shruti','surajit','jishnu','ranju'])
+lib.monitor = {};
+lib.monitor.team1 = new lib.Team(twoTeam[0]);
+lib.monitor.team2 = new lib.Team(twoTeam[1]);
+exports.lib=lib;	
