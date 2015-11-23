@@ -1,9 +1,8 @@
 var deckLib = require('../deck.js').module;
-
-var deck = require('../cardGenerator.js').lib;
+var cardGeneratorLib = require('../cardGenerator.js').lib;
 var expect = require('chai').expect;
 
-var deckOfCards = new deck.generateDeckOf32Cards();
+var deckOfCards = new cardGeneratorLib.generateDeckOf32Cards();
 
 describe('Deck',function(){
 	var deck = new deckLib.Deck(deckOfCards)
@@ -23,7 +22,7 @@ describe('Deck',function(){
 	});
 	describe('#divide into 4',function(){
 		it('should return an array of length 8',function(){
-			expect(8).to.equal(deck.divideIntoFour().length);
+			expect(8).to.equal(deck.splitCardsIntoGroupOfFour().length);
 		});
 	});
 });
