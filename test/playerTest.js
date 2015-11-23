@@ -56,5 +56,19 @@ describe('Team',function(){
 		var finalScore=team.scoreBoard(false);
 		expect(team.score).to.equal(1);
 	});
+	it('should have calculate the total points of a trick',function(){
+		var wonCardsBucket=[{ suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
+							 { suit: 'Spade', name: 9, rank: 2, point: 2 },
+							 { suit: 'Club', name: 'Jack', rank: 1, point: 3 },
+							 { suit: 'Club', name: 'Queen', rank: 6, point: 0 }];
+		var totalPoints=team.calculatePointsAfterEachTrick(wonCardsBucket);
+		expect(totalPoints).to.equal(8); 
+	});
+	it('should determine team has won or not',function(){
+		expect(team.isBidderWon(21,19)).to.be.true;
+		expect(team.isBidderWon(18,20)).to.be.false;
+	});
+
+
 
 });
