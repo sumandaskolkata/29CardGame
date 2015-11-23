@@ -30,8 +30,13 @@ lib.Team = function(team){
 lib.Team.prototype = {
 	scoreBoard : function(isWinner){
 		(isWinner == true) ? this.score ++ : this.score --;
-	}	
-
+	},
+	calculatePointsAfterEachTrick : function(wonCards){
+		return ld.sum(wonCards.map(function(element){ return element.point}))
+	},
+	isBidderWon:function(pointsCollectedByTeam,valueOfBid){
+		return (pointsCollectedByTeam >= valueOfBid) ? true :false
+	}
 }
 var twoTeam = lib.makeTwoTeams(['shruti','surajit','jishnu','ranju'])
 lib.monitor = {};
