@@ -5,8 +5,11 @@ module.Deck = function(playableCards){
 	this.playableCards = playableCards;
 };
 module.Deck.prototype = {
-	get shuffle (){
+	shuffleCards : function(){ 
 		return ld.shuffle(this.playableCards);
+	},
+	divideIntoFour : function(){
+		return ld.chunk(this.playableCards,4);
 	},
 };
 exports.module = module;

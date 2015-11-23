@@ -1,5 +1,5 @@
-var lib = require('./cardGenerator.js').lib;
-var m = require('./deck.js').module;
+var lib = require('../cardGenerator.js').lib;
+var m = require('../deck.js').module;
 var expect = require('chai').expect;
 
 var cards =[ { suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
@@ -57,7 +57,7 @@ describe('generate all cards',function(){
 describe('shuffle the playable cards',function(){
   it('should have 32 cards',function(){
     var a = new m.Deck(lib.generateDeckOf32Cards());
-    expect(32).to.equal(a.shuffle.length);
+    expect(32).to.equal(a.shuffleCards().length);
   });
 });
 
