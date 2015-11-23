@@ -5,7 +5,7 @@ var makeTwoTeams = function(playersUniqueIDs){
 	var seperatedTeams = ld.chunk(randomisePlayersUniqueIDs,2);
 	return seperatedTeams;
 };
-var Player = function (playerUniqueID) {
+lib.Player = function (playerUniqueID) {
 	this.cards = [];
 	this.bidPoints = function (assumingBidPoint) {
 		return {ID:playerUniqueID,bidPoint:assumingBidPoint};
