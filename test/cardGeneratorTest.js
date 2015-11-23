@@ -1,5 +1,5 @@
-var lib = require('./cardGenerator.js').lib;
-var m = require('./deck.js').module;
+var lib = require('../cardGenerator.js').lib;
+var m = require('../deck.js').module;
 var expect = require('chai').expect;
 
 var cards =[ { suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
