@@ -7,7 +7,8 @@ lib.makeTwoTeams = function(playersUniqueIDs){
 	return seperatedTeams;
 };
 lib.Player = function (playerUniqueID) {
-	this.cards = [];
+	this.playerID=playerUniqueID
+	this.hand = [];
 	this.bidPoints = function (assumingBidPoint) {
 		return {ID:playerUniqueID,bidPoint:assumingBidPoint};
 	};
