@@ -58,7 +58,7 @@ describe('generate all cards',function(){
 describe('shuffle the playable cards',function(){
   it('should have 32 cards',function(){
     var a = new m.Deck(lib.generateDeckOf32Cards());
-    expect(32).to.equal(a.shuffle.length);
+    expect(32).to.equal(a.shuffleCards().length);
   });
 });
 
