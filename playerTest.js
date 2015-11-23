@@ -15,7 +15,7 @@ describe('makeTwoTeams',function(){
 describe('player',function(){
 	it('should have properties',function(){
 		var player = new lib.Player('anjaly');
-		expect(player).to.have.all.keys('cards','bidPoints');
+		expect(player).to.have.all.keys('playerID','hand','bidPoints');
 	});
 	it('should have bidPoints field with properties',function(){
 		var player = new lib.Player('anjaly');
