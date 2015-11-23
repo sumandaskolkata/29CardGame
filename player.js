@@ -24,11 +24,5 @@ lib.Team = function(team){
 lib.Team.prototype = {
 
 }
-var twoTeam = lib.makeTwoTeams(['shruti','surajit','jishnu','ranju'])
-lib.monitor = {};
-lib.monitor.team1 = new lib.Team(twoTeam[0]);
-lib.monitor.team2 = new lib.Team(twoTeam[1]);
-
-
 
 exports.lib=lib;
