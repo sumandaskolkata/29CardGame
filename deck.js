@@ -5,7 +5,7 @@ module.Deck = function(playableCards){
 	this.playableCards = playableCards;
 };
 module.Deck.prototype = {
-	get shuffle (){
+	shuffleCards : function(){ 
 		return ld.shuffle(this.playableCards);
 	},
 };
