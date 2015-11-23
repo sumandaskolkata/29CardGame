@@ -1,6 +1,7 @@
+var lib={};
 var ld = require('lodash');
 
-var makeTwoTeams = function(playersUniqueIDs){
+lib.makeTwoTeams = function(playersUniqueIDs){
 	var randomisePlayersUniqueIDs = ld.shuffle(playersUniqueIDs);
 	var seperatedTeams = ld.chunk(randomisePlayersUniqueIDs,2);
 	return seperatedTeams;
@@ -11,3 +12,5 @@ lib.Player = function (playerUniqueID) {
 		return {ID:playerUniqueID,bidPoint:assumingBidPoint};
 	};
 };
+
+exports.lib=lib;
