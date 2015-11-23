@@ -1,4 +1,4 @@
-var lib=require('./player.js').lib;
+var lib=require('../player.js').lib;
 var expect=require('chai').expect;
 
 describe('makeTwoTeams',function(){
