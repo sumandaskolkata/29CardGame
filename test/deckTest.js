@@ -7,8 +7,6 @@ var deckOfCards = new cardGeneratorLib.generateDeckOf32Cards();
 describe('Deck',function(){
 	var deck = new deckLib.Deck(deckOfCards);
 	var splitedCards = deck.splitCardsIntoGroupOfFour;
-	console.log("************",deck);
-	console.log("---------------",splitedCards);
 
 	it('should have playable cards',function(){
 		expect(deck).to.have.all.keys('playableCards');
