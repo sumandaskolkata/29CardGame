@@ -15,7 +15,7 @@ describe('makeTwoTeams',function(){
 describe('Player',function(){
 	var player = new lib.Player('anjaly');
 	it('should have properties',function(){
-		expect(player).to.have.all.keys('playerID','hand','isBidder','hasPair');
+		expect(player).to.have.all.keys('playerID','hand','isBidder','hasPair','isTrumpSetter');
 	});
 	it('should have bidPoints with properties',function(){
 		expect(player.bidPoints(16)).to.have.all.keys('ID','bidPoint');
@@ -29,6 +29,17 @@ describe('Player',function(){
 	it('hasPair should be initialized with false',function(){
 		expect(player.hasPair).to.be.false;
 	});
+	it('should have pair of trump in hand',function(){
+		       var hand=[ { suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
+					      { suit: 'Spade', name: 'King', rank: 5, point: 0 },
+  					      { suit: 'Spade', name: 'Queen', rank: 6, point: 0 },
+  					      { suit: 'Diamond', name: 'Jack', rank: 1, point: 3 },
+  					      { suit: 'Diamond', name: 9, rank: 2, point: 2 },
+  					      { suit: 'Spade', name: 'Ace', rank: 3, point: 1 },
+  					      { suit: 'Spade', name: 10, rank: 4, point: 1 },
+  					      { suit: 'Spade', name: 7, rank: 8, point: 0 }];
+  		expect(player.checkPair(hand,'Spade')).to.be.true;
+	})
 });
 
 describe('Team',function(){
@@ -67,5 +78,43 @@ describe('Team',function(){
 	it('should determine team has won or not',function(){
 		expect(team.isBidderWon(21,19)).to.be.true;
 		expect(team.isBidderWon(18,20)).to.be.false;
+	});
+	it('should have pair of trump',function(){
+		var player1Hand=[ { suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
+					      { suit: 'Spade', name: 'King', rank: 5, point: 0 },
+  					      { suit: 'Spade', name: 'Queen', rank: 6, point: 0 },
+  					      { suit: 'Diamond', name: 'Jack', rank: 1, point: 3 },
+  					      { suit: 'Diamond', name: 9, rank: 2, point: 2 },
+  					      { suit: 'Spade', name: 'Ace', rank: 3, point: 1 },
+  					      { suit: 'Spade', name: 10, rank: 4, point: 1 },
+  					      { suit: 'Spade', name: 7, rank: 8, point: 0 }];
+  		var player2Hand=[{ suit: 'Heart', name: 9, rank: 2, point: 2 },
+  							{ suit: 'Heart', name: 'Ace', rank: 3, point: 1 },
+  							{ suit: 'Heart', name: 10, rank: 4, point: 1 },
+ 							{ suit: 'Heart', name: 'King', rank: 5, point: 0 },
+ 							{ suit: 'Club', name: 9, rank: 2, point: 2 },
+  							{ suit: 'Club', name: 'Ace', rank: 3, point: 1 },
+  							{ suit: 'Club', name: 10, rank: 4, point: 1 },
+  							{ suit: 'Heart', name: 'Queen', rank: 6, point: 0 }]			
+		expect(team.checkPair(player1Hand,player2Hand,'Spade')).to.be.true;
+	});
+	it('should have pair of trump',function(){
+		var player1Hand=[ { suit: 'Heart', name: 'Jack', rank: 1, point: 3 },
+		                  { suit: 'Heart', name: 'Ace', rank: 3, point: 1 },
+						  { suit: 'Spade', name: 'King', rank: 5, point: 0 },
+  					      { suit: 'Diamond', name: 'Jack', rank: 1, point: 3 },
+  					      { suit: 'Diamond', name: 9, rank: 2, point: 2 },
+  					      { suit: 'Spade', name: 'Ace', rank: 3, point: 1 },
+  					      { suit: 'Spade', name: 10, rank: 4, point: 1 },
+  					      { suit: 'Spade', name: 7, rank: 8, point: 0 }];
+  		var player2Hand=[{ suit: 'Heart', name: 9, rank: 2, point: 2 },
+  						  { suit: 'Spade', name: 'Queen', rank: 6, point: 0 },
+  						  { suit: 'Heart', name: 10, rank: 4, point: 1 },
+ 					      { suit: 'Heart', name: 'King', rank: 5, point: 0 },
+ 						  { suit: 'Club', name: 9, rank: 2, point: 2 },
+  						  { suit: 'Club', name: 'Ace', rank: 3, point: 1 },
+  						  { suit: 'Club', name: 10, rank: 4, point: 1 },
+  						  { suit: 'Heart', name: 'Queen', rank: 6, point: 0 }]			
+		expect(team.checkPair(player1Hand,player2Hand,'Spade')).to.be.false;
 	});
 });
